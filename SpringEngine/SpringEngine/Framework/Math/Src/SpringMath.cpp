@@ -154,7 +154,7 @@ Quaternion Quaternion::slerp(const Quaternion& q0, const Quaternion& q1, float t
 	}
 
 	const float theta = acosf(dot);
-	float sinTheta = sinf(theta);
+	const float sinTheta = sinf(theta);
 	const float scale0 = sinf(theta * (1.0f - t)) / sinTheta;
 	const float scale1 = q1Scale * sinf(theta * t) / sinTheta;
 

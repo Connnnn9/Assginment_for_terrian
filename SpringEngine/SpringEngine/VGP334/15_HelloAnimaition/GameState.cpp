@@ -31,21 +31,32 @@ void GameState::Initialize()
 
 
 	mAnimation = AnimationBuilder()
-		.AddPositionKey({ 0.0f, 5.0f, 0.0f }, 0.0)
-		.AddPositionKey({ 0.0f, 5.0f, 0.0f }, 3.0)
-		.AddPositionKey({ 0.0f, 5.0f, 0.0f }, 5.0)
+		.AddPositionKey({ 0.0f, 5.0f, 0.0f }, 0.0f, EaseType::EaseInOutQuad)
+		.AddPositionKey({ 0.0f, 0.5f, 0.0f }, 1.0f, EaseType::EaseInQuad)
+		.AddPositionKey({ 0.0f, 0.5f, 0.0f }, 1.1f)
+		.AddPositionKey({ 0.0f, 5.0f, 0.0f }, 2.0f, EaseType::EaseOutQuad)
+		.AddRotationKey({ 0.0f,0.0f,0.0f,1.0f }, 0.0f)
+		.AddRotationKey(Math::Quaternion::Normalize({ 6.28f,0.0f,0.0f,1.0f }), 2.0f)
+		.AddScaleKey({ 1.0f, 1.0f, 1.0f},0.0f)
+		.AddScaleKey({ 1.0f, 1.0f, 1.0f},0.8f)
+		.AddScaleKey({ 1.0f, 0.25f, 1.0f},1.0f)
+		.AddScaleKey({ 1.0f, 0.25f, 1.0f},1.1f)
+		.AddScaleKey({ 1.0f, 1.5f, 1.0f},1.25f)
+		.AddScaleKey({ 1.0f, 1.0f, 1.0f},2.0f)
 		.Build();
 
 	mAnimationTimes = 0.0f;
 }
 void GameState::Terminate()
 {
+	mGround.Terminate();
 	mball.Terminate();
 	mStandardEffect.Terminate();
 }
 void GameState::Update(const float deltaTime)
 {
 	UpdateCameraControl(deltaTime);
+
 	mAnimationTimes += deltaTime;
 	while (mAnimationTimes > mAnimation.GetDuration())
 	{
@@ -54,8 +65,13 @@ void GameState::Update(const float deltaTime)
 }
 void GameState::Render()
 {
+	SimpleDraw::AddGroundPlane(10.0f, Colors::White);
+	SimpleDraw::Render(mCamera);
+
+	mball.transform = mAnimation.GetTransform(mAnimationTimes);
 	mStandardEffect.Begin();
-		mStandardEffect.Render(mball);
+	mStandardEffect.Render(mGround);
+	mStandardEffect.Render(mball);
 	mStandardEffect.End();
 
 }
@@ -64,7 +80,7 @@ void GameState::DebugUI()
 	ImGui::Begin("Debug control", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
 	if (ImGui::CollapsingHeader("Light", ImGuiTreeNodeFlags_DefaultOpen))
 	{
-		if (ImGui::DragFloat3("Direction",&mDirectionalLight.direction.x,0.1f))
+		if (ImGui::DragFloat3("Direction", &mDirectionalLight.direction.x, 0.1f))
 		{
 			mDirectionalLight.direction = Math::Normalize(mDirectionalLight.direction);
 		}
@@ -72,10 +88,6 @@ void GameState::DebugUI()
 		ImGui::ColorEdit4("Ambient##Light", &mDirectionalLight.ambient.r);
 		ImGui::ColorEdit4("Diffuse##Light", &mDirectionalLight.diffuse.r);
 		ImGui::ColorEdit4("Specular##Light", &mDirectionalLight.specular.r);
-	}
-	if (ImGui::CollapsingHeader("Quaternion", ImGuiTreeNodeFlags_DefaultOpen))
-	{
-
 	}
 	mStandardEffect.DebugUI();
 	ImGui::End();
