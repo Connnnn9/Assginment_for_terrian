@@ -78,7 +78,7 @@ Math::Quaternion Animation::GetRotation(float time) const
 		{
 			if (i > 0)
 			{
-				float t = GetLerpTime(mRotationKeys[i - 1].time, mRotationKeys[i].time, time, mPositionKeys[i].easeType);
+				float t = GetLerpTime(mRotationKeys[i - 1].time, mRotationKeys[i].time, time, mRotationKeys[i].easeType);
 				return Math::Quaternion::slerp(mRotationKeys[i - 1].key, mRotationKeys[i].key, t);
 			}
 			return mRotationKeys[i].key;
@@ -100,7 +100,7 @@ Math::Vector3 Animation::GetScale(float time) const
 		{
 			if (i > 0)
 			{
-				float t = GetLerpTime(mScaleKeys[i - 1].time, mScaleKeys[i].time, time, mPositionKeys[i].easeType);
+				float t = GetLerpTime(mScaleKeys[i - 1].time, mScaleKeys[i].time, time, mScaleKeys[i].easeType);
 				return Math::Lerp(mScaleKeys[i - 1].key, mScaleKeys[i].key, t);
 			}
 			return mScaleKeys[i].key;

@@ -45,7 +45,8 @@ void GameState::Initialize()
 		.AddScaleKey({ 1.0f, 1.0f, 1.0f},2.0f)
 		.Build();
 
-	mAnimationTimes = 0.0f;
+
+	mAnimationTime = 0.0f;
 }
 void GameState::Terminate()
 {
@@ -57,10 +58,10 @@ void GameState::Update(const float deltaTime)
 {
 	UpdateCameraControl(deltaTime);
 
-	mAnimationTimes += deltaTime;
-	while (mAnimationTimes > mAnimation.GetDuration())
+	mAnimationTime += deltaTime;
+	while (mAnimationTime > mAnimation.GetDuration())
 	{
-		mAnimationTimes -= mAnimation.GetDuration();
+		mAnimationTime -= mAnimation.GetDuration();
 	}
 }
 void GameState::Render()
@@ -68,10 +69,10 @@ void GameState::Render()
 	SimpleDraw::AddGroundPlane(10.0f, Colors::White);
 	SimpleDraw::Render(mCamera);
 
-	mball.transform = mAnimation.GetTransform(mAnimationTimes);
+	mball.transform = mAnimation.GetTransform(mAnimationTime);
 	mStandardEffect.Begin();
-	mStandardEffect.Render(mGround);
-	mStandardEffect.Render(mball);
+		mStandardEffect.Render(mGround);
+		mStandardEffect.Render(mball);
 	mStandardEffect.End();
 
 }

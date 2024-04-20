@@ -24,5 +24,5 @@ private:
 
 	//anmation
 	SpringEngine::Graphics::Animation mAnimation;
-	float mAnimationTimes = 0.0f;
+	float mAnimationTime = 0.0f;
 };

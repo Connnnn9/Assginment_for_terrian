@@ -144,6 +144,7 @@
     <ClInclude Include="Inc\AnimationBuilder.h" />
     <ClInclude Include="Inc\BillboardEffect.h" />
     <ClInclude Include="Inc\BlendState.h" />
+    <ClInclude Include="Inc\Bone.h" />
     <ClInclude Include="Inc\Camera.h" />
     <ClInclude Include="Inc\Colors.h" />
     <ClInclude Include="Inc\Common.h" />
@@ -158,6 +159,8 @@
     <ClInclude Include="Inc\MeshBuffer.h" />
     <ClInclude Include="Inc\MeshBuilder.h" />
     <ClInclude Include="Inc\MeshTypes.h" />
+    <ClInclude Include="Inc\Model.h" />
+    <ClInclude Include="Inc\ModeliO.h" />
     <ClInclude Include="Inc\ModelManager.h" />
     <ClInclude Include="Inc\PixelShader.h" />
     <ClInclude Include="Inc\PostProcessingEffect.h" />
@@ -167,6 +170,7 @@
     <ClInclude Include="Inc\ShadowEffect.h" />
     <ClInclude Include="Inc\SimpleDraw.h" />
     <ClInclude Include="Inc\SimpleEffect.h" />
+    <ClInclude Include="Inc\Skeleton.h" />
     <ClInclude Include="Inc\StandardEffect.h" />
     <ClInclude Include="Inc\Terrain.h" />
     <ClInclude Include="Inc\TerrainEffect.h" />

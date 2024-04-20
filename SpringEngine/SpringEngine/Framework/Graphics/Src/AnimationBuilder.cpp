@@ -32,7 +32,7 @@ AnimationBuilder& AnimationBuilder::AddRotationKey(const Math::Quaternion& rot, 
 AnimationBuilder& AnimationBuilder::AddScaleKey(const Math::Vector3& scale, float time, EaseType easeType)
 {
 
-	PushKey(mWorkingCopy.mPositionKeys, scale, time, easeType);
+	PushKey(mWorkingCopy.mScaleKeys, scale, time, easeType);
 	mWorkingCopy.mDuration = Math::Max(mWorkingCopy.mDuration, time);
 	return *this;
 }
