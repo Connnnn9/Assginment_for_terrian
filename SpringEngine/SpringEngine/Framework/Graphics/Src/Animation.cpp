@@ -61,13 +61,13 @@ Math::Vector3 Animation::GetPosition(float time) const
 			}
 			return mPositionKeys[i].key;
 		}
-
-		if (!mPositionKeys.empty())
-		{
-			return mPositionKeys.back().key;
-		}
-		return Math::Vector3::Zero;
 	}
+
+	if (!mPositionKeys.empty())
+	{
+		return mPositionKeys.back().key;
+	}
+	return Math::Vector3::Zero;
 }
 
 Math::Quaternion Animation::GetRotation(float time) const
@@ -83,13 +83,13 @@ Math::Quaternion Animation::GetRotation(float time) const
 			}
 			return mRotationKeys[i].key;
 		}
-
-		if (!mRotationKeys.empty())
-		{
-			return mRotationKeys.back().key;
-		}
-		return Math::Quaternion::Identity;
 	}
+
+	if (!mRotationKeys.empty())
+	{
+		return mRotationKeys.back().key;
+	}
+	return Math::Quaternion::Identity;
 }
 
 Math::Vector3 Animation::GetScale(float time) const
@@ -105,11 +105,11 @@ Math::Vector3 Animation::GetScale(float time) const
 			}
 			return mScaleKeys[i].key;
 		}
-
-		if (!mScaleKeys.empty())
-		{
-			return mScaleKeys.back().key;
-		}
-		return Math::Vector3::One;
 	}
+
+	if (!mScaleKeys.empty())
+	{
+		return mScaleKeys.back().key;
+	}
+	return Math::Vector3::One;
 }
