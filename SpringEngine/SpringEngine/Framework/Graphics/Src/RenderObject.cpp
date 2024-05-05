@@ -49,6 +49,7 @@ RenderGroup Graphics::CreateRenderGroup(const Model& model)
 			renderObject.bumpMapId = TryLoadTexture(materialData.bumpMapName);
 			renderObject.specMapId = TryLoadTexture(materialData.specularMapName);
 		}
+		renderObject.skeleton
 	}
 	return renderGroup;
 }
