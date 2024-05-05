@@ -26,6 +26,8 @@ void GameState::Initialize()
 	
 	mCharacterId = ModelManager::Get()->LoadModel("../../Assets/Models/Character_1/Character01.fbx");
 	mCharacter = CreateRenderGroup(mCharacterId);
+	Animator.Initialize(mCharacterId);
+	Animator.PlayAnimation(1, true);
 }
 void GameState::Terminate()
 {
@@ -36,6 +38,30 @@ void GameState::Terminate()
 void GameState::Update(const float deltaTime)
 {
 	UpdateCameraControl(deltaTime);
+
+	auto input = Input::InputSystem::Get();
+	int targetAnim = -1;
+	if (input->IsKeyPressed(Input::KeyCode::UP))
+	{
+		targetAnim = 4;
+	}
+	else if (input->IsKeyDown(Input::KeyCode::DOWN))
+	{
+		targetAnim = 1;
+	}
+	else if (input->IsKeyDown(Input::KeyCode::LEFT))
+	{
+		targetAnim = 2;
+	}
+	else if (input->IsKeyDown(Input::KeyCode::RIGHT))
+	{
+		targetAnim = 3;
+	}
+	if (targetAnim != mAnimationIndex)
+	{
+		mAnimationIndex = targetAnim;
+		mCharacterAnimator.PlayAnimation(mAnimationIndex, true);
+	}
 }
 void GameState::Render()
 {
@@ -70,6 +96,11 @@ void GameState::DebugUI()
 		ImGui::ColorEdit4("Ambient##Light", &mDirectionalLight.ambient.r);
 		ImGui::ColorEdit4("Diffuse##Light", &mDirectionalLight.diffuse.r);
 		ImGui::ColorEdit4("Specular##Light", &mDirectionalLight.specular.r);
+
+		if (ImGui::DragInt("AniamationIndex", &mAnimationIndex, 1, -1, mCharacterAnimator.GetAnimationCount() - 1))
+		{
+			mCharacter
+		}
 	}
 	ImGui::Checkbox("DrawSkeleton", &mDrawSkeleton);
 	mStandardEffect.DebugUI();

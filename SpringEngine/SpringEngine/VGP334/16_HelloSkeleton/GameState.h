@@ -22,6 +22,6 @@ private:
 	SpringEngine::Graphics::RenderGroup mCharacter;
 	SpringEngine::Graphics::RenderObject mGround;
 	
-
+	int mAnimationIndex = -1;
 	bool mDrawSkeleton = false;
 };

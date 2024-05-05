@@ -3,7 +3,7 @@
 #include "MeshBuffer.h"
 #include "Transform.h"
 #include "TextureManager.h"
-//#include "Material.h"
+#include "Material.h"
 #include "ModelManager.h"
 namespace SpringEngine::Graphics
 {
@@ -22,6 +22,9 @@ namespace SpringEngine::Graphics
 		TextureId normalMapId;
 		TextureId specMapId;
 		TextureId bumpMapId;
+
+		const Skeleton* skeleton = nullptr;
+		//const Animator* animator = nullptr;
 	};
 
 	using RenderGroup = std::vector<RenderObject>;
