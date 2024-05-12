@@ -26,14 +26,15 @@ namespace SpringEngine::Physics
 		void DebugUI();
 
 		void Register();
-		void 
+		void Unregister();
 
 	private:
 		Settings mSettings;
 
 		btBroadphaseInterface* mInterface = nullptr;
+		btCollisionDispatcher*
 
-
+		PhysicsDebugDraw mPhysicsDebugDraw;
 
 		using PhysicsObjects = std::vector<PhysicsObject*>;
 		PhysicsObjects

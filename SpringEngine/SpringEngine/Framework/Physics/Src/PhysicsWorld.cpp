@@ -24,7 +24,20 @@ PhysicsWorld:~PhysicsWorld()
 
 void PhysicsWorld::DebugUI()
 {
-
+	if (ImGui::CollapsingHeader("Physics", ImGuiTreeNodeFlags_DefaultOpen))
+	{
+		ImGui::Checkbox("DebugDraw", &mDebugDraw);
+		if (mDebugDraw)
+		{
+			int debugMode = mPhysicsDebugDraw.getDebugMode();
+			bool isEnabled = (debugMode & btIDebugDraw::DBG_DrawWireframe);
+			if (ImGui::Checkbox("[DBG]Wireframe", &isEnabled))
+			{
+				debugMode = (isEnabled) ? debugMode | btIDebugDraw::DBG_DrawWrieframe : debugMode & ~btIDebugDraw)
+			}
+			isEnabled = (debugMode & btIDebugDraw)
+		}
+	}
 }
 
 void PhysicsWorld::Register(PhysicsObject* physicsObject)
@@ -34,4 +47,15 @@ void PhysicsWorld::Register(PhysicsObject* physicsObject)
 	{
 
 	}
+}
+
+void PhysicsWorld::Initialize(const Settings& settings)
+{
+
+}
+//Terminate
+//Update
+void PhysicsWorld::Update(float deltaTime)
+{
+	mDynamicsWorld->stepSimulation(deltaTime, mSetting)
 }

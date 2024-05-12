@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.4.33213.308
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32228.343
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Engine", "Engine", "{1EB192D8-3358-49A1-8887-AE14885D0651}"
 EndProject
@@ -92,6 +92,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Physics", "Framework\Physics\Physics.vcxproj", "{4310D6CE-D8A5-46AA-A5C1-D9DCE0CEF7E2}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Bullet", "External\Bullet\Bullet.vcxproj", "{516192EB-788A-4FE7-B2B7-2EF9AC036B12}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "18_HelloPhysics", "VGP334\18_HelloPhysics\18_HelloPhysics.vcxproj", "{F3F15D53-7DDD-4627-9346-18150D704ED2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -301,6 +303,14 @@ Global
 		{516192EB-788A-4FE7-B2B7-2EF9AC036B12}.Release|x64.Build.0 = Release|x64
 		{516192EB-788A-4FE7-B2B7-2EF9AC036B12}.Release|x86.ActiveCfg = Release|Win32
 		{516192EB-788A-4FE7-B2B7-2EF9AC036B12}.Release|x86.Build.0 = Release|Win32
+		{F3F15D53-7DDD-4627-9346-18150D704ED2}.Debug|x64.ActiveCfg = Debug|x64
+		{F3F15D53-7DDD-4627-9346-18150D704ED2}.Debug|x64.Build.0 = Debug|x64
+		{F3F15D53-7DDD-4627-9346-18150D704ED2}.Debug|x86.ActiveCfg = Debug|Win32
+		{F3F15D53-7DDD-4627-9346-18150D704ED2}.Debug|x86.Build.0 = Debug|Win32
+		{F3F15D53-7DDD-4627-9346-18150D704ED2}.Release|x64.ActiveCfg = Release|x64
+		{F3F15D53-7DDD-4627-9346-18150D704ED2}.Release|x64.Build.0 = Release|x64
+		{F3F15D53-7DDD-4627-9346-18150D704ED2}.Release|x86.ActiveCfg = Release|Win32
+		{F3F15D53-7DDD-4627-9346-18150D704ED2}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -333,6 +343,7 @@ Global
 		{06639C43-0E16-4247-8F1F-7F76A970355E} = {70E41832-71BE-4D3A-81AE-5C2208D07717}
 		{4310D6CE-D8A5-46AA-A5C1-D9DCE0CEF7E2} = {7AC7C15C-4D75-4134-A969-AB7C533A7C92}
 		{516192EB-788A-4FE7-B2B7-2EF9AC036B12} = {C5BFC193-0FB4-4593-AE46-FC9EBC8283DA}
+		{F3F15D53-7DDD-4627-9346-18150D704ED2} = {70E41832-71BE-4D3A-81AE-5C2208D07717}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6D0AC193-6F87-4854-B7B1-0619DF878E8F}
